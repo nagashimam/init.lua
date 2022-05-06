@@ -35,15 +35,15 @@ function findCommaOrTennBackward()
   end
 end
 
--- vim.keymap.set("i", "jj", "<Esc>")
+vim.keymap.set("i", "jj", "<Esc>")
 
 -- 履歴からコマンドを呼び出すときに、フィルタリングを行う
--- vim.keymap.set("c", "<C-p>", "<Up>")
--- vim.keymap.set("c", "<C-n>", "<Down>")
--- 
--- vim.keymap.set({"n","v"}, "j", "gj")
--- vim.keymap.set({"n","v"}, "k", "gk")
--- vim.keymap.set("n", "<Leader>,", [[<Cmd>:nohl<CR>]])
+vim.keymap.set("c", "<C-p>", "<Up>")
+vim.keymap.set("c", "<C-n>", "<Down>")
+
+vim.keymap.set({"n","v"}, "j", "gj")
+vim.keymap.set({"n","v"}, "k", "gk")
+vim.keymap.set("n", "<Leader>,", [[<Cmd>:nohl<CR>]])
 
 -- 「、」にもfやFができるようにする
 vim.keymap.set("n", "fj,", function() findCommaOrTennForward() end)
