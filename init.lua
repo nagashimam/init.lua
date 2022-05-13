@@ -1,5 +1,2 @@
-require("globals")
-require("buffers")
-require("windows")
+require("settings")
 require("mappings")
-require("commands")
