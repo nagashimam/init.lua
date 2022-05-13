@@ -1,3 +1,13 @@
+vim.keymap.set("i", "jj", "<Esc>")
+
+-- 履歴からコマンドを呼び出すときに、フィルタリングを行う
+vim.keymap.set("c", "<C-p>", "<Up>")
+vim.keymap.set("c", "<C-n>", "<Down>")
+
+vim.keymap.set({"n","v"}, "j", "gj")
+vim.keymap.set({"n","v"}, "k", "gk")
+vim.keymap.set({"n"}, "<Leader>,", [[<Cmd>:nohl<CR>]])
+
 -- selectLhs=trueの場合、左側にある文字を返す(LtR言語前提)。selectLhs=falseの場合右側
 -- char1/char2ともに文字列に含まれない場合nilを返す
 function selectCharacter(char1, char2, str, selectLhs)
@@ -35,18 +45,9 @@ function findCommaOrTennBackward()
   end
 end
 
--- vim.keymap.set("i", "jj", "<Esc>")
-
--- 履歴からコマンドを呼び出すときに、フィルタリングを行う
--- vim.keymap.set("c", "<C-p>", "<Up>")
--- vim.keymap.set("c", "<C-n>", "<Down>")
--- 
--- vim.keymap.set({"n","v"}, "j", "gj")
--- vim.keymap.set({"n","v"}, "k", "gk")
--- vim.keymap.set("n", "<Leader>,", [[<Cmd>:nohl<CR>]])
 
 -- 「、」にもfやFができるようにする
-vim.keymap.set("n", "fj,", function() findCommaOrTennForward() end)
+vim.keymap.set({"n", "o", "v"}, "fj,", function() findCommaOrTennForward() end)
 vim.keymap.set("n", "Fj,", function() findCommaOrTennBackward() end)
 
 -- テスト
