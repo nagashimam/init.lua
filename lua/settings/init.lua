@@ -21,6 +21,7 @@ vim.g.mapleader = " "
 
 vim.wo.conceallevel = 2
 vim.wo.number = true
+vim.wo.relativenumber = true
 vim.wo.cursorline = true
 
 vim.cmd("colorscheme elflord")

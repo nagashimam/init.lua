@@ -25,6 +25,11 @@ function findMatch(candidates, str)
   return nil
 end
 
+function toggleRelativeNumber()
+  local param = (vim.wo.relativenumber and "norelativenumber") or "relativenumber"
+  vim.cmd("set " .. param)
+end
+
 vim.keymap.set("i", "jj", "<Esc>")
 
 -- 履歴からコマンドを呼び出すときに、フィルタリングを行う
@@ -35,6 +40,7 @@ vim.keymap.set({"n","v"}, "j", "gj")
 vim.keymap.set({"n","v"}, "k", "gk")
 
 vim.keymap.set("n", "<Leader>,", [[<Cmd>:nohl<CR>]])
+vim.keymap.set("n", "<Leader>rn", function() toggleRelativeNumber() end)
 
 vim.keymap.set({"n", "v", "o"}, "fj,", "f、")
 vim.keymap.set({"n", "v", "o"}, "Fj,", "F、")
