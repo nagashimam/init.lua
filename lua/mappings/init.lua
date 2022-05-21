@@ -1,28 +1,12 @@
-function findCloserBraceForward(command)
-  local columnPosition,line = vim.fn.getpos(".")[3],vim.fn.getline(".")
-  local target = string.sub(line, columnPosition + 1, #line)
-  local result = findMatch({"「","『","』","」"}, target)
-  if result then 
-    vim.cmd("normal " .. command .. result)
-  end
-end
-
-function findCloserBraceBackward(command)
-  local columnPosition,line = vim.fn.getpos(".")[3],vim.fn.getline(".")
-  local target = string.sub(line, 1, columnPosition - 1)
-  local result = findMatch({"」","』","『","「"}, target)
-  if result then 
-    vim.cmd("normal " .. command .. result)
-  end
-end
-
-function findMatch(candidates, str)
-  for _, candidate in pairs(candidates) do
-    if(string.find(str, candidate)) then
-      return candidate
+function findOne(command, chars)
+  local previousCursorPosition = vim.fn.getpos(".")[3]
+  for _, char in pairs(chars) do
+    vim.cmd("normal " .. command .. char)
+    local currentCursorPosition = vim.fn.getpos(".")[3]
+    if previousCursorPosition ~= currentCursorPosition then
+      break
     end
   end
-  return nil
 end
 
 function toggleRelativeNumber()
@@ -52,7 +36,7 @@ vim.keymap.set({"n", "v", "o"}, "Fj.", "F。")
 vim.keymap.set({"n", "v", "o"}, "tj.", "t。")
 vim.keymap.set({"n", "v", "o"}, "Tj.", "T。")
 
-vim.keymap.set({"n", "v", "o"}, [[fj"]], function() findCloserBraceForward("f") end)
-vim.keymap.set({"n", "v", "o"}, [[Fj"]], function() findCloserBraceBackward("F") end)
-vim.keymap.set({"n", "v", "o"}, [[tj"]], function() findCloserBraceForward("t") end)
-vim.keymap.set({"n", "v", "o"}, [[Tj"]], function() findCloserBraceBackward("T") end)
+vim.keymap.set({"n", "v", "o"}, [[fj"]], function() findOne("f", {"「","『","』","」"}) end)
+vim.keymap.set({"n", "v", "o"}, [[Fj"]], function() findOne("F", {"」","』","『","「"}) end)
+vim.keymap.set({"n", "v", "o"}, [[tj"]], function() findOne("t", {"「","『","』","」"}) end)
+vim.keymap.set({"n", "v", "o"}, [[Tj"]], function() findOne("T", {"」","』","『","「"}) end)
