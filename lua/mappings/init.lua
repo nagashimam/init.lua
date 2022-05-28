@@ -42,7 +42,11 @@ vim.keymap.set({"n", "v", "o"}, [[tj"]], function() findOne("t", {"「","『","�
 vim.keymap.set({"n", "v", "o"}, [[Tj"]], function() findOne("T", {"」","』","『","「"}) end)
 
 vim.keymap.set("n", "<Leader>v", [[<Cmd>:edit $NVIMCONF/lua/mappings/init.lua<CR> <Cmd>:vnew $NVIMCONF/lua/settings/init.lua<CR>]])
-vim.keymap.set("n", "<Leader>s", [[<Cmd>:source $NVIMCONF/lua/mappings/init.lua<CR> <Cmd>:source $NVIMCONF/lua/settings/init.lua<CR>]])
+vim.keymap.set("n", "<Leader>s", [[
+  <Cmd>:source $NVIMCONF/lua/mappings/init.lua<CR> 
+  <Cmd>:source $NVIMCONF/lua/settings/init.lua<CR>
+  <Cmd>:source $NVIMCONF/lua/plugins/init.lua<CR>
+]])
 
 vim.keymap.set("n", "b[", [[<Cmd>:bprev<CR>]])
 vim.keymap.set("n", "b]", [[<Cmd>:bnext<CR>]])

@@ -35,7 +35,6 @@ vim.wo.relativenumber = true
 vim.wo.cursorline = true
 
 vim.cmd("colorscheme elflord")
-vim.cmd("filetype plugin on")
 
 vim.api.nvim_create_user_command("RecursivePath",function() setRecursivePath() end,{})
 
