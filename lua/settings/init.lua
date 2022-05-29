@@ -38,9 +38,9 @@ vim.cmd("colorscheme elflord")
 
 vim.api.nvim_create_user_command("RecursivePath",function() setRecursivePath() end,{})
 
-local id = vim.api.nvim_create_augroup("FileSystem", {})
-vim.api.nvim_create_autocmd({"TabEnter", "BufEnter"}, {
+local id = vim.api.nvim_create_augroup("CustomAutoCmd", {})
+vim.api.nvim_create_autocmd({"FocusGained","BufEnter","CursorHold","CursorHoldI"}, {
   group = id,
   pattern = "*",
-  command = "RecursivePath"
+  command = "checktime"
 })
