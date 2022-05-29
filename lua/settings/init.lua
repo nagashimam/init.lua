@@ -27,20 +27,29 @@ vim.o.softtabstop = 2
 vim.o.shiftwidth = 2
 vim.o.expandtab = true
 
+vim.opt.showmode = false
+vim.opt.scrolloff = 7
+
+vim.bo.iskeyword = vim.bo.iskeyword .. ',-'
+
 vim.g.mapleader = " "
+
+-- cocを使うならこの2行が推奨設定
+--vim.g.nobackup = true
+--vim.g.nowritebackup = true
 
 vim.wo.conceallevel = 2
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.wo.cursorline = true
-
-vim.cmd("colorscheme elflord")
+vim.wo.linebreak = true
 
 vim.api.nvim_create_user_command("RecursivePath",function() setRecursivePath() end,{})
 
-local id = vim.api.nvim_create_augroup("CustomAutoCmd", {})
+local id = vim.api.nvim_create_augroup("CheckTime", {})
 vim.api.nvim_create_autocmd({"FocusGained","BufEnter","CursorHold","CursorHoldI"}, {
   group = id,
   pattern = "*",
   command = "checktime"
 })
+
