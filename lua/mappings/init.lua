@@ -44,15 +44,15 @@ vim.keymap.set({"n", "v", "o"}, [[Tj"]], function() findOne("T", {"」","』","�
 vim.keymap.set("n", "<Leader>v", [[<Cmd>:edit $NVIMCONF/lua/mappings/init.lua<CR><Cmd>:vnew $NVIMCONF/lua/settings/init.lua<CR><Cmd>:new $NVIMCONF/lua/plugins/init.lua<CR>]])
 vim.keymap.set("n", "<Leader>s", [[<Cmd>:source $NVIMCONF/lua/mappings/init.lua<CR> <Cmd>:source $NVIMCONF/lua/settings/init.lua<CR> <Cmd>:source $NVIMCONF/lua/plugins/init.lua<CR>]])
 
-vim.keymap.set("n", "b[", [[<Cmd>:bprev<CR>]])
-vim.keymap.set("n", "b]", [[<Cmd>:bnext<CR>]])
-vim.keymap.set("n", "B[", [[<Cmd>:bfirst<CR>]])
-vim.keymap.set("n", "B]", [[<Cmd>:blast<CR>]])
+vim.keymap.set("n", "[b", [[<Cmd>:bprev<CR>]])
+vim.keymap.set("n", "]b", [[<Cmd>:bnext<CR>]])
+vim.keymap.set("n", "[B", [[<Cmd>:bfirst<CR>]])
+vim.keymap.set("n", "]B", [[<Cmd>:blast<CR>]])
 
-vim.keymap.set("n", "t[", [[<Cmd>:tabprev<CR>]])
-vim.keymap.set("n", "t]", [[<Cmd>:tabnext<CR>]])
-vim.keymap.set("n", "T[", [[<Cmd>:tabfirst<CR>]])
-vim.keymap.set("n", "T]", [[<Cmd>:tablast<CR>]])
+vim.keymap.set("n", "[t", [[<Cmd>:tabprev<CR>]])
+vim.keymap.set("n", "]t", [[<Cmd>:tabnext<CR>]])
+vim.keymap.set("n", "[T", [[<Cmd>:tabfirst<CR>]])
+vim.keymap.set("n", "]T", [[<Cmd>:tablast<CR>]])
  
 vim.keymap.set("n", "<Leader>p", [[<Cmd>:RecursivePath<CR>]])
 
