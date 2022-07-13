@@ -46,10 +46,3 @@ vim.wo.linebreak = true
 
 vim.api.nvim_create_user_command("RecursivePath",function() setRecursivePath() end,{})
 
-local id = vim.api.nvim_create_augroup("CheckTime", {})
-vim.api.nvim_create_autocmd({"FocusGained","BufEnter","CursorHold","CursorHoldI"}, {
-  group = id,
-  pattern = "*",
-  command = "checktime"
-})
-
