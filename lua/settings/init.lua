@@ -46,3 +46,10 @@ vim.wo.linebreak = true
 
 vim.api.nvim_create_user_command("RecursivePath",function() setRecursivePath() end,{})
 
+vim.cmd([[
+  augroup qs_colors
+    autocmd!
+    autocmd ColorScheme * highlight QuickScopePrimary guifg='#000000' gui=underline ctermfg=142 cterm=underline
+    autocmd ColorScheme * highlight QuickScopeSecondary guifg='#b16286' gui=underline ctermfg=70 cterm=underline
+  augroup END
+]])

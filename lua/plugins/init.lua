@@ -5,22 +5,17 @@ vim.cmd("filetype plugin on")
 local Plug = vim.fn['plug#']
 vim.call('plug#begin','~/.config/nvim/plugged')
   Plug('lervag/vimtex',{["for"] = "tex"})
-  Plug('preservim/vim-markdown',{["for"] = "markdown"})
-  Plug('godlygeek/tabular',{["for"] = "markdown"}) -- vim-markdownのテーブル整形に必要
-  Plug('iamcco/markdown-preview.nvim', { ['do'] = 'cd app && yarn install',['for'] = 'markdown'})
   Plug('unblevable/quick-scope')
   Plug('easymotion/vim-easymotion')
-  Plug('rakr/vim-one')
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes' 
+  Plug('cocopon/iceberg.vim')
+  Plug('neovim/nvim-lspconfig')
 vim.call('plug#end')
 
 vim.g.vimtex_view_method = 'skim'
 
-vim.g.airline_theme = 'one'
 vim.g.background = 'dark'
 vim.opt.showcmd = false -- デフォルト設定が上書きされているよう
-vim.cmd 'colorscheme one'
+vim.cmd 'colorscheme iceberg'
 
 vim.g.netrw_banner = 0        
 vim.g.netrw_browse_split = 4  
