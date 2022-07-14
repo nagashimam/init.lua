@@ -33,6 +33,7 @@ vim.opt.scrolloff = 7
 vim.bo.iskeyword = vim.bo.iskeyword .. ',-'
 
 vim.g.mapleader = " "
+vim.g.maplocalleader=","
 
 -- cocを使うならこの2行が推奨設定
 --vim.g.nobackup = true
